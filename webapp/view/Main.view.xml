@@ -1,0 +1,45 @@
+<mvc:View controllerName="googleimage.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <FlexBox justifyContent="Center">
+               <!-- <Image src="http://www.sap.com/global/ui/images/global/sap-logo.png"/>-->
+                <Input id="inpBusca" submit="onPressBuscar"/><!--é para fazer busca com ENTER-->
+                <Button text="Buscar" press="onPressBuscar"/>
+            </FlexBox>
+            <!--
+            <List headerText="Lista de Resultados">
+            
+                <CustomListItem>Vou dizer como é a minha linha da lista/tabela
+                    <HBox>
+                        <Image src="http://cdn.shopify.com/s/files/1/0265/3893/4330/products/coca-cola-110591_1200x1200.jpg?v=1590528264" 
+                                width="5em"/>
+                        <VBox>
+                            <Link text="Coca-cola White Lily Diner"
+                                href="http://cdn.shopify.com/s/files/1/0265/3893/4330/products/coca-cola-110591_1200x1200.jpg?v=1590528264"
+                                target="_blank"/>Para o link abrir numa nova aba
+                            <Label text="shopify"/>
+                        </VBox>
+                    </HBox>
+                </CustomListItem>
+                </List>
+                -->
+            <List headerText="Lista de Resultados" items="{ModeloImagem>/Imagens}">
+                <CustomListItem>
+                    <HBox>
+                        <Image src= "{ModeloImagem>thumbnail}"
+                                width="5em"/>
+                        <VBox>
+                            <Link text="{ModeloImagem>title}"
+                                href="{ModeloImagem>url}"
+                                target="_blank"/>
+                            <Label text="{ModeloImagem>provider/name}"/>
+                        </VBox>
+                    </HBox>
+                </CustomListItem>
+            </List>
+
+        </content>
+    </Page>
+</mvc:View>
